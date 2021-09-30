@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Admin\EmployeesController;
+use App\Http\Controllers\Admin\RoomsController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\Auth\RegisterController;
@@ -20,6 +23,18 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('home');
 })->name('home');
+
+Route::get('/admin', [AdminController::class, 'index'])->name('adminpage');
+
+Route::get('/admin/employees', [EmployeesController::class, 'index'])->name('employees');
+
+Route::get('/admin/rooms', [RoomsController::class, 'index'])->name('rooms');
+
+Route::post('/admin/rooms/add', [RoomsController::class, 'store'])->name('addroom');
+
+Route::delete('/admin/employees/{id}', [EmployeesController::class, 'destroy'])->name('deleteemployee');
+
+Route::post('/admin/employees/add', [EmployeesController::class, 'store'])->name('addemployee');
 
 
 Route::get('/reservations', [ReservationsController::class, 'index'])->name('reservations');

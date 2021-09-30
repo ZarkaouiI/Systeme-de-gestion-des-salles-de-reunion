@@ -29,6 +29,9 @@ class LoginController extends Controller
             return back()->with('status', 'Les informations sont incorrectes');
         }
 
+        if(auth()->user()->isadmin){
+            return redirect()->route('adminpage');
+        }
         return redirect()->route('reservations');
     }
 }

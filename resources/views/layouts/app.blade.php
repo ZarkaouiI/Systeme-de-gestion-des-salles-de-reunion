@@ -22,9 +22,15 @@
             </ul>
             <ul class="flex items-center">
                 @auth
-                    <li>
-                        <a href="" class="p-3">{{ auth()->user()->name }}</a>
-                    </li>
+                    @if (auth()->user()->isadmin)
+                        <li>
+                            <a href="{{ route('adminpage') }}" class="p-3">{{ auth()->user()->name }}</a>
+                        </li>
+                    @else
+                        <li>
+                            <p>{{ auth()->user()->name }}</p>
+                        </li>
+                    @endif
                     <li>
                         <form action="{{ route('logout') }}" method="post" class="p-3 inline">
                             @csrf
