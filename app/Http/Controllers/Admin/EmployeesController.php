@@ -35,6 +35,11 @@ class EmployeesController extends Controller
         return back();
     }
 
+    public function update($id)
+    {
+        return view('admin.modifyemployee');
+    }
+
     public function destroy($id)
     {
         User::destroy($id);

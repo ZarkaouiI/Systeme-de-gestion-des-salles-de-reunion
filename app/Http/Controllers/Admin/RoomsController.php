@@ -8,10 +8,20 @@ use Illuminate\Http\Request;
 
 class RoomsController extends Controller
 {
+    public function __construct() {
+        $this->middleware(['auth']);
+    }
+
     public function index()
     {
         $rooms = Room::get();
         return view('admin.rooms', ['rooms' => $rooms]);
+    }
+
+    public function show()
+    {
+        $rooms = Room::get();
+        return view('rooms.index', ['rooms' => $rooms]);
     }
 
     public function store(Request $request)
@@ -29,5 +39,12 @@ class RoomsController extends Controller
         ]);
 
         return back();
+    }
+
+    public function destroy($id)
+    {
+        Room::destroy($id);
+
+        return redirect()->back();
     }
 }

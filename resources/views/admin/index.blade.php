@@ -11,7 +11,7 @@
                 @csrf
                 <button type="submit" class="bg-blue-500 text-white px-4 py-3 rounded font-medium w-full">Gérer les salles</button>
             </form>
-            <form action="" method="post" class="p-3">
+            <form action="{{ route('meetings') }}"  class="p-3">
                 @csrf
                 <button type="submit" class="bg-blue-500 text-white px-4 py-3 rounded font-medium w-full">Planifier une réunion</button>
             </form>

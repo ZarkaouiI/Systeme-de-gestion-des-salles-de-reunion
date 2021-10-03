@@ -5,36 +5,37 @@
         <div class="w-8/12 bg-white p-6 rounded-lg">
             <p class="font-bold text-gray-600">La liste des salles:</p>
             <br>
-            <table class="border-collapse border border-blue-800 w-full">
+            <table class="border-collapse border border-blue-500 w-full">
                 <thead>
                     <tr>
-                        <th class="border border-green-600">Salle</th>
-                        <th class="border border-green-600">Capacité</th>
-                        <th class="border border-green-600">description</th>
-                        <th class="border border-green-600">Actions</th>
+                        <th class="border border-blue-500">Salle</th>
+                        <th class="border border-blue-500">Capacité</th>
+                        <th class="border border-blue-500">description</th>
+                        <th class="border border-blue-500">Actions</th>
                     </tr>
                 </thead>
                 @foreach ($rooms as $room)
                     <tbody>
                         <tr>
-                            <td class="border border-green-600">{{ $room->name }}</td>
-                            <td class="border border-green-600">{{ $room->capacity }}</td>
-                            <td class="border border-green-600">{{ $room->description }}</td>
-                            <td class="border border-green-600 align-center">
-                                <form action="" method="post">
+                            <td class="border border-blue-500">{{ $room->name }}</td>
+                            <td class="border border-blue-500">{{ $room->capacity }}</td>
+                            <td class="border border-blue-500">{{ $room->description }}</td>
+                            <td class="border border-blue-500 align-center">
+                                <form action="{{ route('deleteroom', $room->id) }}" method="post">
                                     @method('DELETE')
                                     @csrf
                                     <button type="submit" class="text-white bg-red-500 w-full mb-1">Supprimer</button>
                                 </form>
                                 <form action="" method="post">
                                     @csrf
-                                    <button type="submit" class="text-white bg-green-500 w-full mt-1">Modifier</button>
+                                    <button type="submit" class="text-blue-500 bg-white w-full">Modifier</button>
                                 </form>
                             </td>
                         </tr>
                     </tbody>
                 @endforeach
             </table>
+            <br>
             <p class="font-bold text-gray-600">Ajouter une nouvelle salle:</p>
             <br>
             <form action="{{ route('addroom') }}" method="post" class="w-4/12">

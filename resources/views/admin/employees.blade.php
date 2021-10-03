@@ -26,9 +26,9 @@
                                     @csrf
                                     <button type="submit" class="text-white bg-red-500 w-full mb-1">Supprimer</button>
                                 </form>
-                                <form action="" method="post">
+                                <form action="">
                                     @csrf
-                                    <button type="submit" class="text-white bg-green-500 w-full mt-1">Modifier</button>
+                                    <button type="submit" class="text-blue-500 bg-white w-full">Modifier</button>
                                 </form>
                             </td>
                         </tr>
@@ -38,47 +38,49 @@
             <br>
             <p class="font-bold text-gray-600">Ajouter un salarié:</p>
             <br>
-            <form action="{{ route('addemployee') }}" method="post" class="w-4/12">
-                @csrf
-                <div class="mb-4">
-                    <label for="name" class="sr-only">Nom complét</label>
-                    <input type="text" name="name" id="name" placeholder="Nom complét du salarié" class="bg-gray-100 border-2 w-full p-4 rounded-lg @error('name') border-red-500 @enderror" value="{{ old('name') }}">
+            <div>
+                <form action="{{ route('addemployee') }}" method="post" class="w-4/12">
+                    @csrf
+                    <div class="mb-4">
+                        <label for="name" class="sr-only">Nom complét</label>
+                        <input type="text" name="name" id="name" placeholder="Nom complét du salarié" class="bg-gray-100 border-2 w-full p-4 rounded-lg @error('name') border-red-500 @enderror" value="{{ old('name') }}">
 
-                    @error('name')
-                        <div class="text-red-500 mt-2 text-sm">
-                            {{ $message }}
-                        </div>
-                    @enderror
-                </div>
+                        @error('name')
+                            <div class="text-red-500 mt-2 text-sm">
+                                {{ $message }}
+                            </div>
+                        @enderror
+                    </div>
 
-                <div class="mb-4">
-                    <label for="email" class="sr-only">Email</label>
-                    <input type="email" name="email" id="email" placeholder="L'adresse email du salarié" class="bg-gray-100 border-2 w-full p-4 rounded-lg @error('email') border-red-500 @enderror" value="{{ old('email') }}">
+                    <div class="mb-4">
+                        <label for="email" class="sr-only">Email</label>
+                        <input type="email" name="email" id="email" placeholder="L'adresse email du salarié" class="bg-gray-100 border-2 w-full p-4 rounded-lg @error('email') border-red-500 @enderror" value="{{ old('email') }}">
 
-                    @error('email')
-                        <div class="text-red-500 mt-2 text-sm">
-                            {{ $message }}
-                        </div>
-                    @enderror
-                </div>
+                        @error('email')
+                            <div class="text-red-500 mt-2 text-sm">
+                                {{ $message }}
+                            </div>
+                        @enderror
+                    </div>
 
-                <div class="mb-4">
-                    <label for="phone" class="sr-only">Numéro de téléphone</label>
-                    <input type="text" name="phone" id="phone" placeholder="Le numéro de téléphone du salarié" class="bg-gray-100 border-2 w-full p-4 rounded-lg @error('phone') border-red-500 @enderror" value="{{ old('phone') }}">
+                    <div class="mb-4">
+                        <label for="phone" class="sr-only">Numéro de téléphone</label>
+                        <input type="text" name="phone" id="phone" placeholder="Le numéro de téléphone du salarié" class="bg-gray-100 border-2 w-full p-4 rounded-lg @error('phone') border-red-500 @enderror" value="{{ old('phone') }}">
 
-                    @error('phone')
-                        <div class="text-red-500 mt-2 text-sm">
-                            {{ $message }}
-                        </div>
-                    @enderror
-                </div>
+                        @error('phone')
+                            <div class="text-red-500 mt-2 text-sm">
+                                {{ $message }}
+                            </div>
+                        @enderror
+                    </div>
 
-                <div>
-                    <button type="submit" class="bg-blue-500 text-white px-4 py-3 rounded font-medium w-5/12">
-                        Ajouter
-                    </button>
-                </div>
-            </form>
+                    <div>
+                        <button type="submit" class="bg-blue-500 text-white px-4 py-3 rounded font-medium w-5/12">
+                            Ajouter
+                        </button>
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
 @endsection

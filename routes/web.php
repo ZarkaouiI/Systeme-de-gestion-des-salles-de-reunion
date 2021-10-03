@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\EmployeesController;
+use App\Http\Controllers\Admin\MeetingsController;
 use App\Http\Controllers\Admin\RoomsController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\LogoutController;
@@ -30,9 +31,20 @@ Route::get('/admin/employees', [EmployeesController::class, 'index'])->name('emp
 
 Route::get('/admin/rooms', [RoomsController::class, 'index'])->name('rooms');
 
+
+Route::get('/meetings', [MeetingsController::class, 'index'])->name('meetings');
+Route::post('/meetings', [MeetingsController::class, 'store']);
+
+
 Route::post('/admin/rooms/add', [RoomsController::class, 'store'])->name('addroom');
 
+Route::delete('/admin/rooms/{id}', [RoomsController::class, 'destroy'])->name('deleteroom');
+
 Route::delete('/admin/employees/{id}', [EmployeesController::class, 'destroy'])->name('deleteemployee');
+
+// Route::put('/admin/employees/{id}', [EmployeesController::class, 'update'])->name('modifyemployee');
+
+Route::view('/admin/employee/modify/{id}', 'admin.modifyemployee')->name('modify.employee');
 
 Route::post('/admin/employees/add', [EmployeesController::class, 'store'])->name('addemployee');
 
@@ -47,6 +59,4 @@ Route::post('/login', [LoginController::class, 'store']);
 Route::get('/register', [RegisterController::class, 'index'])->name('register');
 Route::post('/register', [RegisterController::class, 'store']);
 
-Route::get('/rooms', function () {
-    return view('rooms.index');
-});
+Route::get('/rooms', [RoomsController::class, 'show'])->name('rooms.index');

@@ -5,16 +5,18 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+        {{-- image\background.jpg --}}
         <title>Système de gestion des salles de réunion</title>
+
     </head>
-    <body class="bg-gray-200">
-        <nav class="p-6 bg-white flex justify-between mb-6">
+    <body class="bg-gray-200" background="image\background.jpg">
+        <nav class="p-6 bg-gray-300 flex justify-between mb-6">
             <ul class="flex items-center">
                 <li>
                     <a href="/" class="p-3">Accueil</a>
                 </li>
                 <li>
-                    <a href="" class="p-3">Salles</a>
+                    <a href="{{ route('rooms.index') }}" class="p-3">Salles</a>
                 </li>
                 <li>
                     <a href="{{ route('reservations') }}" class="p-3">Réservations</a>
@@ -43,9 +45,9 @@
                     <li>
                         <a href="{{ route('login') }}" class="p-3">Se-Connecter</a>
                     </li>
-                    <li>
+                    {{-- <li>
                         <a href="{{ route('register') }}" class="p-3">S'inscrire</a>
-                    </li>
+                    </li> --}}
                 @endguest
             </ul>
         </nav>
