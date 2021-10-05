@@ -41,6 +41,25 @@ class RoomsController extends Controller
         return back();
     }
 
+    public function updateroom(Request $request)
+    {
+        $this->validate($request, [
+            'name' => 'required|max:20',
+            'capacity' => 'required',
+            'description' => 'required|max:100'
+        ]);
+
+        $room = Room::find($request->id);
+
+        $room->name = $request->name;
+        $room->capacity = $request->capacity;
+        $room->description = $request->description;
+
+        $room->save();
+
+        return redirect()->route('rooms');
+    }
+
     public function update($id)
     {
         $room = Room::find($id);

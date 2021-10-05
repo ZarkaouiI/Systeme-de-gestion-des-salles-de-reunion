@@ -3,7 +3,8 @@
 @section('content')
     <div class="flex justify-center">
         <div class="w-4/12 bg-white p-6 rounded-lg">
-            <form action="">
+            <form action="{{ route('modifyroom', $room) }}" method="post">
+                @method('PUT')
                 @csrf
                 <div class="mb-4">
                     <label for="name" class="sr-only">Nom de la salle</label>

@@ -41,6 +41,34 @@ class EmployeesController extends Controller
         return view('admin.modifyemployee', ['employee' => $employee]);
     }
 
+    public function updateemployee(Request $request)
+    {
+
+        $this->validate($request, [
+            'name' => 'required|max:255',
+            'email' => 'required|email',
+            'phone' => 'required|digits:10'
+        ]);
+
+        $user = User::find($request->id);
+
+        if($user->email == $request->email){
+            $user->name = $request->name;
+            $user->phone = $request->phone;
+        }
+        else{
+            $request->validate([
+                'email' => 'required|email|max:255'
+            ]);
+            $user->name = $request->name;
+            $user->email = $request->email;
+            $user->phone = $request->phone;
+        }
+
+        $user->save();
+        return redirect()->route('employees');
+    }
+
     public function destroy($id)
     {
         User::destroy($id);

@@ -40,16 +40,15 @@ Route::delete('/meetings/{id}', [MeetingsController::class, 'destroy'])->name('d
 Route::post('/admin/rooms/add', [RoomsController::class, 'store'])->name('addroom');
 
 Route::get('/admin/rooms/{id}', [RoomsController::class, 'update'])->name('modifyroom');
+Route::put('/admin/rooms/{id}', [RoomsController::class, 'updateroom']);
 
 Route::delete('/admin/rooms/{id}', [RoomsController::class, 'destroy'])->name('deleteroom');
 
 Route::delete('/admin/employees/{id}', [EmployeesController::class, 'destroy'])->name('deleteemployee');
 
-// Route::put('/admin/employees/{id}', [EmployeesController::class, 'update'])->name('modifyemployee');
-
 Route::get('/admin/employees/{id}', [EmployeesController::class, 'update'])->name('modifyemployee');
+Route::put('/admin/employees/{id}', [EmployeesController::class, 'updateemployee']);
 
-// Route::view('/admin/employee/modify/{id}', 'admin.modifyemployee')->name('modify.employee');
 
 Route::post('/admin/employees/add', [EmployeesController::class, 'store'])->name('addemployee');
 

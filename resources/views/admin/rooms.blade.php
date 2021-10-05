@@ -15,7 +15,7 @@
                             <th class="p-4 w-1/4">Actions</th>
                         </tr>
                     </thead>
-                    <tbody class="bg-grey-light flex flex-col items-center justify-between overflow-y-scroll w-full" style="height: 30vh;">
+                    <tbody class="bg-grey-light flex flex-col items-center justify-between overflow-y-scroll w-full" style="height: 40vh;">
                         @foreach ($rooms as $room)
                             <tr class="flex w-full mb-4">
                                 <td class="p-4 w-1/4">{{ $room->name }}</td>
@@ -69,9 +69,6 @@
                     <div class="mb-4">
                         <label for="description" class="sr-only">Description de la salle</label>
                         <textarea name="description" id="description" cols="30" rows="4" class="bg-gray-100 border-2 w-full p-4 rounded-lg @error('description') border-red-500 @enderror" value="{{ old('description') }}" placeholder="Description de la salle"></textarea>
-
-                        {{-- <input type="text" name="description" id="description" placeholder="La description de la salle" class="bg-gray-100 border-2 w-full p-4 rounded-lg @error('description') border-red-500 @enderror" value="{{ old('description') }}"> --}}
-
                         @error('description')
                             <div class="text-red-500 mt-2 text-sm">
                                 {{ $message }}
