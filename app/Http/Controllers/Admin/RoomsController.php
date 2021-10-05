@@ -14,13 +14,13 @@ class RoomsController extends Controller
 
     public function index()
     {
-        $rooms = Room::get();
+        $rooms = Room::orderBy('name', 'asc')->get();
         return view('admin.rooms', ['rooms' => $rooms]);
     }
 
     public function show()
     {
-        $rooms = Room::get();
+        $rooms = Room::orderBy('name', 'asc')->get();
         return view('rooms.index', ['rooms' => $rooms]);
     }
 

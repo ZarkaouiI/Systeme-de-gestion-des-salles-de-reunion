@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="flex justify-center">
+    <div class="flex justify-center mt-20">
         <div class="w-4/12 bg-white p-6 rounded-lg">
             @if (session('status'))
                 <div class="bg-red-500 p-4 rounded-lg mb-6 text-white text-center">
@@ -47,6 +47,10 @@
                     </button>
                 </div>
             </form>
+
+            <div>
+                <a href="" class="text-blue-500 font-medium w-full p-4 flex justify-center">Mot de passe oublié?</a>
+            </div>
         </div>
     </div>
 @endsection

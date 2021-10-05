@@ -58,7 +58,8 @@
                     <label for="room">Choisir une salle pour la réunion</label>
                     <select name="room" id="room">
                         @foreach ($rooms as $room)
-                            <option value="{{ $room->name }}" class="bg-gray-100 border-2 w-full p-4 rounded-lg">{{ $room->name .' : '.$room->capacity .' personnes' }}</option>
+                            {{-- Set the time for the room after choosing start and end --}}
+                            <option value="{{ $room->name }}" class="bg-gray-100 border-2 w-full p-4 rounded-lg">{{ $room->name .' : '.$room->capacity .' personnes. Occupée de ' .$room->from . ' à '  . $room->to }}</option>
                         @endforeach
                     </select>
 

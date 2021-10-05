@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Meeting;
 use App\Models\Room;
 use Illuminate\Http\Request;
 
@@ -48,5 +49,12 @@ class MeetingsController extends Controller
         ]);
 
         return redirect()->route('reservations');
+    }
+
+    public function destroy($id)
+    {
+        Meeting::destroy($id);
+
+        return redirect()->back();
     }
 }

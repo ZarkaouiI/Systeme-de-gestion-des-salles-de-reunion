@@ -35,6 +35,7 @@ Route::get('/admin/rooms', [RoomsController::class, 'index'])->name('rooms');
 Route::get('/meetings', [MeetingsController::class, 'index'])->name('meetings');
 Route::post('/meetings', [MeetingsController::class, 'store']);
 
+Route::delete('/meetings/{id}', [MeetingsController::class, 'destroy'])->name('deletemeeting');
 
 Route::post('/admin/rooms/add', [RoomsController::class, 'store'])->name('addroom');
 

@@ -2,26 +2,24 @@
 
 @section('content')
     <div class="flex justify-center flex items-center">
-        <div class="w-8/12 bg-white p-6 rounded-lg">
-            <p class="font-bold text-gray-600">La liste des salles:</p>
-            <br>
-            <table class="border-collapse border border-blue-500 w-full">
-                <thead>
-                    <tr>
-                        <th class="border border-blue-500">Salle</th>
-                        <th class="border border-blue-500">Capacité</th>
-                        <th class="border border-blue-500">description</th>
+        <div class="container">
+            <table class="text-left w-full">
+                <thead class="bg-blue-500 flex text-white w-full">
+                    <tr class="flex w-full mb-4">
+                        <th class="p-4 w-1/4">Salle</th>
+                        <th class="p-4 w-1/4">Capacité</th>
+                        <th class="p-4 w-1/4">Description</th>
                     </tr>
                 </thead>
-                @foreach ($rooms as $room)
-                    <tbody>
-                        <tr>
-                            <td class="border border-blue-500 w-4/12">{{ $room->name }}</td>
-                            <td class="border border-blue-500 w-4/12">{{ $room->capacity }}</td>
-                            <td class="border border-blue-500 w-8/12">{{ $room->description }}</td>
+                <tbody class="bg-grey-light flex flex-col items-center justify-between overflow-y-scroll w-full" style="height: 60vh;">
+                    @foreach ($rooms as $room)
+                        <tr class="flex w-full mb-4">
+                            <td class="p-4 w-1/4">{{ $room->name }}</td>
+                            <td class="p-4 w-1/4">{{ $room->capacity }}</td>
+                            <td class="p-4 w-1/4">{{ $room->description }}</td>
                         </tr>
-                    </tbody>
-                @endforeach
+                    @endforeach
+                </tbody>
             </table>
         </div>
     </div>
