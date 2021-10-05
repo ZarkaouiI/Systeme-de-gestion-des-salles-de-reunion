@@ -37,7 +37,8 @@ class EmployeesController extends Controller
 
     public function update($id)
     {
-        return view('admin.modifyemployee');
+        $employee = User::find($id);
+        return view('admin.modifyemployee', ['employee' => $employee]);
     }
 
     public function destroy($id)

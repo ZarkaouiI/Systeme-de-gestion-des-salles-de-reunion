@@ -27,7 +27,7 @@
                                         @csrf
                                         <button type="submit" class="text-white bg-red-500 w-full mb-1">Supprimer</button>
                                     </form>
-                                    <form action="">
+                                    <form action="{{ route('modifyroom', $room->id) }}">
                                         @csrf
                                         <button type="submit" class="text-blue-500 bg-white w-full">Modifier</button>
                                     </form>
@@ -70,6 +70,7 @@
                         <label for="description" class="sr-only">Description de la salle</label>
                         <textarea name="description" id="description" cols="30" rows="4" class="bg-gray-100 border-2 w-full p-4 rounded-lg @error('description') border-red-500 @enderror" value="{{ old('description') }}" placeholder="Description de la salle"></textarea>
 
+                        {{-- <input type="text" name="description" id="description" placeholder="La description de la salle" class="bg-gray-100 border-2 w-full p-4 rounded-lg @error('description') border-red-500 @enderror" value="{{ old('description') }}"> --}}
 
                         @error('description')
                             <div class="text-red-500 mt-2 text-sm">

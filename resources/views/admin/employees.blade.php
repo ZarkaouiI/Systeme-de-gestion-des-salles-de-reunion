@@ -58,7 +58,7 @@
                                         @csrf
                                         <button type="submit" class="text-white bg-red-500 w-full mb-1">Supprimer</button>
                                     </form>
-                                    <form action="">
+                                    <form action="{{ route('modifyemployee', $employee->id) }}">
                                         @csrf
                                         <button type="submit" class="text-blue-500 bg-white w-full">Modifier</button>
                                     </form>

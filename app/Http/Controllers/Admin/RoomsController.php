@@ -41,6 +41,12 @@ class RoomsController extends Controller
         return back();
     }
 
+    public function update($id)
+    {
+        $room = Room::find($id);
+        return view('admin.modifyroom', ['room' => $room]);
+    }
+
     public function destroy($id)
     {
         Room::destroy($id);
