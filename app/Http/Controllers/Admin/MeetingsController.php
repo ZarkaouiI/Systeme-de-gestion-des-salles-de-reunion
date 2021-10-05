@@ -25,11 +25,6 @@ class MeetingsController extends Controller
 
     public function store(Request $request)
     {
-
-        //CHOF ILA MAKHDMCH HAD L9LAWI GHADI N AFFICHER GA3 LES SALLES O L USER HOWA LI GHAYTKHTAR BKRRO LA SALLE LI BGHA
-
-        //Une fois la salle est choisie, on doit changer ses attributs from et to to match start and end of the meeting
-
         $this->validate($request, [
             'responsable' => 'required|max:255',
             'date' => 'required|date',
@@ -49,6 +44,41 @@ class MeetingsController extends Controller
         ]);
 
         return redirect()->route('reservations');
+    }
+
+    public function update($id)
+    {
+        $meeting = Meeting::find($id);
+        $rooms = Room::orderBy('name', 'asc')->get();
+        return view('admin.modifymeeting', [
+            'meeting' => $meeting,
+            'rooms' => $rooms
+        ]);
+    }
+
+    public function updatemeeting(Request $request)
+    {
+        $this->validate($request, [
+            'responsable' => 'required|max:255',
+            'date' => 'required|date',
+            'start' => 'required',
+            'end' => 'required',
+            'attendance' => 'required|integer',
+            'room' => 'required'
+        ]);
+
+        $meeting = Meeting::find($request->id);
+
+        $meeting->responsable = $request->responsable;
+        $meeting->date = $request->date;
+        $meeting->start = $request->start;
+        $meeting->end = $request->end;
+        $meeting->attendance = $request->attendance;
+        $meeting->room = $request->room;
+
+        $meeting->save();
+
+        return redirect()->route('meetings');
     }
 
     public function destroy($id)

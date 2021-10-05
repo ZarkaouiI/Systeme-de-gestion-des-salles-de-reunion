@@ -46,6 +46,7 @@
                             <th class="p-4 w-1/4">De</th>
                             <th class="p-4 w-1/4">à</th>
                             <th class="p-4 w-1/4">Salle</th>
+                            <th class="p-4 w-1/4">Nombre de participants</th>
                             <th class="p-4 w-1/4"></th>
                         </tr>
                     </thead>
@@ -57,12 +58,17 @@
                                 <td class="p-4 w-1/4">{{ $meeting->start }}</td>
                                 <td class="p-4 w-1/4">{{ $meeting->end }}</td>
                                 <td class="p-4 w-1/4">{{ $meeting->room }}</td>
+                                <td class="p-4 w-1/4">{{ $meeting->attendance }}</td>
                                 @if (auth()->user()->name === $meeting->responsable)
                                     <td class="p-4 w-1/4">
                                         <form action="{{ route('deletemeeting', $meeting->id) }} " method="post">
                                             @method('DELETE')
                                             @csrf
                                             <button type="submit" class="text-white bg-red-500 w-full mb-1">Annuler</button>
+                                        </form>
+                                        <form action="{{ route('modifymeeting', $meeting->id) }}">
+                                            @csrf
+                                            <button type="submit" class="text-blue-500 bg-white w-full">Modifier</button>
                                         </form>
                                     </td>
                                 @else
