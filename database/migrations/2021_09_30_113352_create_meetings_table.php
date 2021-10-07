@@ -21,8 +21,8 @@ class CreateMeetingsTable extends Migration
             $table->time('start');
             $table->time('end');
             $table->integer('attendance');
+            $table->foreignId('room_id')->constrained()->onDelete('cascade');
             $table->string('room');
-            // $table->foreignId('room_id')->constrained()->onDelete('cascade');
             $table->timestamps();
         });
     }

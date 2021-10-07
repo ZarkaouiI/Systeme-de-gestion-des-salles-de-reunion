@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Meeting;
 use App\Models\Room;
 use Illuminate\Http\Request;
 
@@ -29,7 +30,7 @@ class RoomsController extends Controller
         $this->validate($request, [
             'name' => 'required|max:20',
             'capacity' => 'required',
-            'description' => 'required|max:100'
+            'description' => 'required|max:200'
         ]);
 
         Room::create([

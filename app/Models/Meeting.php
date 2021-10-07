@@ -15,6 +15,7 @@ class Meeting extends Model
         'start',
         'end',
         'attendance',
+        'room_id',
         'room',
     ];
 

@@ -59,7 +59,10 @@
                     <select name="room" id="room">
                         @foreach ($rooms as $room)
                             {{-- Set the time for the room after choosing start and end --}}
-                            <option value="{{ $room->name }}" class="bg-gray-100 border-2 w-full p-4 rounded-lg">{{ $room->name .' : '.$room->capacity .' personnes. Occupée de ' .$room->from . ' à '  . $room->to }}</option>
+
+                            {{-- <option value="{{ $room->name }}" class="bg-gray-100 border-2 w-full p-4 rounded-lg">{{ $room->name .' : '.$room->capacity .' personnes. Occupée de ' .$room->from . ' à '  . $room->to }}</option> --}}
+
+                            <option value="{{ $room->name }}">{{ $room->name }}</option>
                         @endforeach
                     </select>
 

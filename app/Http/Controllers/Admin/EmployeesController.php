@@ -29,7 +29,7 @@ class EmployeesController extends Controller
             'name' => $request->name,
             'email' => $request->email,
             'phone' => $request->phone,
-            'password' => Hash::make($request->name . '2021'),
+            'password' => Hash::make('password'),
         ]);
 
         return back();

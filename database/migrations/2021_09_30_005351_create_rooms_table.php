@@ -22,7 +22,6 @@ class CreateRoomsTable extends Migration
             $table->date('day')->nullable();
             $table->time('from')->nullable();
             $table->time('to')->nullable();
-            // $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->timestamps();
         });
     }

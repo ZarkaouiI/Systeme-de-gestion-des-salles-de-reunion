@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Meeting;
 use App\Models\Room;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\DB;
 
 class MeetingsController extends Controller
 {
@@ -25,6 +25,13 @@ class MeetingsController extends Controller
 
     public function store(Request $request)
     {
+        $rs = DB::table('rooms')
+            ->where('name', '=', $request->room)
+            ->get();
+        foreach($rs as $ro){
+            $r_id = $ro->id;
+        }
+
         $this->validate($request, [
             'responsable' => 'required|max:255',
             'date' => 'required|date',
@@ -40,6 +47,7 @@ class MeetingsController extends Controller
             'start' => $request->start,
             'end' => $request->end,
             'attendance' => $request->attendance,
+            'room_id' => $r_id,
             'room' => $request->room
         ]);
 
@@ -74,7 +82,9 @@ class MeetingsController extends Controller
         $meeting->start = $request->start;
         $meeting->end = $request->end;
         $meeting->attendance = $request->attendance;
+        $meeting->room_id = Room::where('name', '=', $request->room);
         $meeting->room = $request->room;
+
 
         $meeting->save();
 
