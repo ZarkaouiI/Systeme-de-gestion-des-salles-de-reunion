@@ -49,7 +49,7 @@
             </form>
 
             <div>
-                <a href="" class="text-blue-500 font-medium w-full p-4 flex justify-center">Mot de passe oublié?</a>
+                <a href="{{ route('password.request') }}" class="text-blue-500 font-medium w-full p-4 flex justify-center">Mot de passe oublié?</a>
             </div>
         </div>
     </div>

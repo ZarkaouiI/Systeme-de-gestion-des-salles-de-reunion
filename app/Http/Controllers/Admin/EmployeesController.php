@@ -3,9 +3,11 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Mail\EmployeeAdded;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
 
 class EmployeesController extends Controller
 {
@@ -31,6 +33,8 @@ class EmployeesController extends Controller
             'phone' => $request->phone,
             'password' => Hash::make('password'),
         ]);
+
+        Mail::to($request->email)->send(new EmployeeAdded());
 
         return back();
     }

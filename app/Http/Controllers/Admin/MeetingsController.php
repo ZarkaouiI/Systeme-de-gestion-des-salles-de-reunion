@@ -29,8 +29,16 @@ class MeetingsController extends Controller
             ->where('name', '=', $request->room)
             ->get();
         foreach($rs as $ro){
-            $r_id = $ro->id;
+            $room_id = $ro->id;
         }
+
+        /*
+        $available_rooms = DB::table('rooms')
+                        ->where('capacity', '>=', $request->attendance)
+                        ->get();
+        //Send this to the 'amdin.meetings' view
+        */
+
 
         $this->validate($request, [
             'responsable' => 'required|max:255',
@@ -47,7 +55,7 @@ class MeetingsController extends Controller
             'start' => $request->start,
             'end' => $request->end,
             'attendance' => $request->attendance,
-            'room_id' => $r_id,
+            'room_id' => $room_id,
             'room' => $request->room
         ]);
 
