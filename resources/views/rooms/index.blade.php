@@ -11,7 +11,7 @@
                         <th class="p-4 w-1/4">Description</th>
                     </tr>
                 </thead>
-                <tbody class="bg-grey-light flex flex-col items-center justify-between overflow-y-scroll w-full" style="height: 60vh;">
+                <tbody class="bg-white flex flex-col items-center justify-between overflow-y-scroll w-full" style="height: 60vh;">
                     @foreach ($rooms as $room)
                         <tr class="flex w-full mb-4">
                             <td class="p-4 w-1/4">{{ $room->name }}</td>

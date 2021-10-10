@@ -19,7 +19,7 @@
                     <a href="{{ route('rooms.index') }}" class="p-3">Salles</a>
                 </li>
                 <li>
-                    <a href="{{ route('reservations') }}" class="p-3">Réservations</a>
+                    <a href="{{ route('reservations') }}" class="p-3">Réunions</a>
                 </li>
             </ul>
             <ul class="flex items-center">
@@ -43,7 +43,7 @@
 
                 @guest
                     <li>
-                        <a href="{{ route('login') }}" class="p-3">Se-Connecter</a>
+                        <a href="{{ route('login') }}" class="p-3">Se-connecter</a>
                     </li>
                     {{-- <li>
                         <a href="{{ route('register') }}" class="p-3">S'inscrire</a>

@@ -49,7 +49,7 @@ class MeetingsController extends Controller
             'room' => 'required'
         ]);
 
-        $request->user()->meetings()->create([
+        auth()->user()->meetings()->create([
             'responsable' => $request->responsable,
             'date' => $request->date,
             'start' => $request->start,

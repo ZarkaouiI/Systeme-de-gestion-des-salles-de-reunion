@@ -14,5 +14,4 @@ class Room extends Model
         'capacity',
         'description',
     ];
-
 }

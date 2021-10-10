@@ -2,6 +2,7 @@
 # Félécitations
 
 Vous avez été ajouté comme salarié à notre entreprise
+Bienvenue
 
 @component('mail::button', ['url' => route('reservations')])
     Se connecter à votre compte

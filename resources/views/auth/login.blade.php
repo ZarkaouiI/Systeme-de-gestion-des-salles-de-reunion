@@ -49,8 +49,14 @@
             </form>
 
             <div>
-                <a href="{{ route('password.request') }}" class="text-blue-500 font-medium w-full p-4 flex justify-center">Mot de passe oublié?</a>
+                <a href="{{ route('forgotpassword') }}" class="text-blue-500 font-medium w-full p-4 flex justify-center">Mot de passe oublié?</a>
             </div>
+
+            {{-- @if (Route::has('password.request'))
+                <a class="btn btn-link" href="{{ route('password.request') }}">
+                    {{ __('Forgot Your Password?') }}
+                </a>
+            @endif --}}
         </div>
     </div>
 @endsection
